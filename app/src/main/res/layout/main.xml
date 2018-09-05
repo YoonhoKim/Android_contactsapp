@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/mainTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Main" />
+
+    <Button
+        android:id="@+id/mainAddBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD" />
+
+    <Button
+        android:id="@+id/createDB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DB생성" />
+
+    <Button
+        android:id="@+id/mainLoginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN" />
+</LinearLayout>
