@@ -20,21 +20,19 @@ public class MemberLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.member_login);
-        Context ctx = MemberLogin.this;
-
+        final Context ctx = MemberLogin.this;
         findViewById(R.id.loginSubmit).setOnClickListener(
                 (View v)->{
-                    ItemExist exist = new ItemExist(ctx);
+                    ItemExist query = new ItemExist(ctx);
                     EditText x = findViewById(R.id.idTxt);
                     EditText y = findViewById(R.id.pwTxt);
-                    exist.id = x.getText().toString();
-                    exist.pw = y.getText().toString();
-
-
+                    query.id = x.getText().toString();
+                    query.pw = y.getText().toString();
+                    this.startActivity(new Intent(ctx,MemberList.class));
                     new Main.StatusService() {
                         @Override
                         public void perform() {
-                            if(exist.execute()){
+                            if(query.execute()){
                                 Toast.makeText(ctx,"로그인 성공",Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(ctx, MemberList.class));
                             }else{

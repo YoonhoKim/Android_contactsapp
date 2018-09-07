@@ -18,19 +18,10 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         final Context ctx = Main.this;
-        findViewById(R.id.createDB).setOnClickListener(
-                (View v)->{
-                    SQLiteHelper helper = new SQLiteHelper(ctx);
-                }
-        );
         findViewById(R.id.mainLoginBtn).setOnClickListener(
                 (View v)->{
+                    SQLiteHelper helper = new SQLiteHelper(ctx);
                     this.startActivity(new Intent(ctx,MemberLogin.class));
-                }
-        );
-        findViewById(R.id.mainAddBtn).setOnClickListener(
-                (View v)->{
-                    this.startActivity(new Intent(ctx,MemberAdd.class));
                 }
         );
     }
@@ -67,8 +58,10 @@ public class Main extends AppCompatActivity {
             Log.d("실행할 쿼리 :: ",sql);
             db.execSQL(sql);
             Log.d("========================","create쿼리실행완료");
-            for(int i = 0; i < 5;i++){
-                db.execSQL(String.format(  " INSERT INTO %s " + " (%s , " + " %s , " + " %s , " + " %s , " + " %s , " + " %s  " + " ) VALUES " + " ('%s' , " + " '%s' , " + " '%s' , " + " '%s' , " + " '%s' , " + " '%s' )  ", MEMTAB,MEMNAME,MEMPW,MEMEMAIL,MEMPHONE,MEMADDR,MEMPHOTO,     "홍길동"+i , "1" , "hong"+i+"@test.com" , "010-1234-567"+i , "신촌"+i+"길" , "hong"+i+".jpg"));
+            String[] names = {"","김수현","박보검","수지","아이린","아이유"};
+            String[] emails = {"","soohyun@test.com","bogum@test.com","suzy@test.com","irin@test.com","iu@test.com"};
+            for(int i = 1; i < 6;i++){
+                db.execSQL(String.format(  " INSERT INTO %s " + " (%s , " + " %s , " + " %s , " + " %s , " + " %s , " + " %s  " + " ) VALUES " + " ('%s' , " + " '%s' , " + " '%s' , " + " '%s' , " + " '%s' , " + " '%s' )  ", MEMTAB,MEMNAME,MEMPW,MEMEMAIL,MEMPHONE,MEMADDR,MEMPHOTO,     names[i] , "1" , emails[i] , "010-1234-567"+i , "신촌"+i+"길" , "profile_"+i));
             }
             Log.d("========================","insert쿼리실행완료");
         }
@@ -78,5 +71,16 @@ public class Main extends AppCompatActivity {
             db.execSQL("DROP TABLE IF EXISTS "+MEMTAB);
             onCreate(db);
         }
+
+        @Override
+        public SQLiteDatabase getReadableDatabase() {
+            return super.getReadableDatabase();
+        }
+
+/*        @Override
+        public void onOpen(SQLiteDatabase db) {
+            db.execSQL(" SELECT * FROM MEMBER ");
+            super.onOpen(db);
+        }*/
     }
 }
