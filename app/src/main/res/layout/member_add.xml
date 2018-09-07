@@ -9,8 +9,38 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="ADD"/>
+    <EditText
+        android:id="@+id/addSeq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ID"/>
+    <EditText
+        android:id="@+id/addPw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PASSWORD"/>
+    <EditText
+        android:id="@+id/addName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NAME"/>
+    <EditText
+        android:id="@+id/addEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E-MAIL"/>
+    <EditText
+        android:id="@+id/addPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PHONENUM"/>
+    <EditText
+        android:id="@+id/addAddr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADDRESS"/>
     <Button
-        android:id="@+id/addListBtn"
+        android:id="@+id/addSubmitBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LIST"/>

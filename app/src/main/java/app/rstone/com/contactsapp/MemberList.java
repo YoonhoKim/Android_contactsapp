@@ -146,11 +146,13 @@ public class MemberList extends AppCompatActivity {
             m = new Member();
         }
         public void execute(){
-            Log.d("야야야야야야:::",m.seq+"");
             this.getDatabase()
                     .execSQL(String.format(" DELETE FROM %s WHERE %s = '%s' " , MEMTAB, MEMSEQ, id));
         }
     }
+
+
+
     private class MemberAdapter extends BaseAdapter{
 
 
